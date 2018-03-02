@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>슬라이드 업</title>
+
+    <style type="text/css">
+        #my .hover { cursor:pointer; background-color:yellow; }
+        div {background-color:silver; height:100px;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $("#btn").click(function ()
+            {
+                $("#first")
+                    .fadeIn('slow')             // 서서히 보이기
+                    .slideUp(3000);           // 슬라이드업 : 숨기기
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="슬라이드 업" />
+    <div id="first" style="display:none; background-color:yellow;">
+        첫번째 영역
+    </div>
+    <div id="second">
+        두번째 영역
+    </div>
+</body>
+</html>

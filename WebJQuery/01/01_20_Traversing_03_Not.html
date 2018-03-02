@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>지정된 표현식을 제외한 집합 가져오기</title>
+    <style type="text/css">
+        .Yellow {background-color:yellow;}
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $('input').not("input[type=radio]").each(function ()
+            {
+                $(this).addClass("Yellow").css("border", "1px solid red");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="myForm">
+        <input type="text" />
+        <input type="password" />
+        <input type="radio" />
+    </div>
+</body>
+</html>

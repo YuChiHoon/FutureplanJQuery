@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style type="text/css">
+        p { border:1px solid red; margin:5px; }
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            // bind는 이미 있는 요소에 대해서만 이벤트 부여
+            //$("p").bind("click", function (e)
+            //{
+            //    alert(e.target.innerText);
+            //    $(this).after("<p>새로운 p 태그 영역!!!</p>");
+            //});
+
+            // live는 이미 있는 요소에 대해서만 이벤트 부여
+            // live는 on으로 변경됨
+            //$("p").live("click", function (e)
+            $(document).on("click", "p", function(e)
+            {
+                alert(e.target.innerText);
+                $(this).after("<p>새로운 p 태그 영역!!!</p>");
+            });
+
+            // delegate 특정 영역 내의 요소에 대한 이벤트 부여
+            $("ul").delegate('li', 'click', function (e) { alert(e.target.innerText); });
+        });
+    </script>
+</head>
+<body>
+    <p>클릭하세요!!!</p>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+</body>
+</html>

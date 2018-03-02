@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>검색된 요소를 특정 태그로 감싸기(Wrap)</title>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] <h3>...</h3>을 <u>태그로 묶자
+            $('h3').wrap("<u></u>");
+
+            //[2] 모든 A 태그를 <li>으로 묶자.
+            //[a] 첫번쨰 링크앞에 동적으로 <ol> 태그 삽입
+            $('<ol type="1" id=community></ol>').insertBefore('a:eq(0)');
+            //[b] 모든 링크를 <li>로 감싸고 이를 <ol>태그에 추가
+            $('a').each(function ()
+            {
+                $(this).appendTo('#community').wrap('<li></li>');
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h3>.NET 기술 관련 커뮤니티</h3>
+    <a href="http://www.1.net/">ASP.NET</a>
+    <a href="http://www.2.net/">SilverLight</a>
+    <a href="http://www.3.net/">ASP.WPF</a>
+    <a href="http://www.4.net/">.NET ALL(?)</a>
+</body>
+</html>

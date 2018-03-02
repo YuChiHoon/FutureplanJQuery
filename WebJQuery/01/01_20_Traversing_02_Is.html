@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>지정된 표현식이 있는지 없는지 검사</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            //myForm 영역에 submit 버튼이 있는지 검사
+            if ($('#myForm').children().is("input[type=text]"))
+            {
+                alert("있다");
+            }
+            else
+            {
+                alert("없다");
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <div id="myForm">
+        <input type="text" />
+    </div>
+</body>
+</html>

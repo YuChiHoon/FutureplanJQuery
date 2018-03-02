@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>방금 실행한 집합 이전으로 되돌리기</title>
+    <style type="text/css">
+        .Yellow {background-color:yellow;}
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] JavaScript 텍스트 찾아가기
+            alert($('div').find('p').html());                   //<b>JavaScript</b>
+
+            //[2] jQuery 텍스트 찾아가기
+            var result = $('div').find('p:last').find('b').html();
+            alert(result);                                      //jQuery
+
+            //[3] 방금 탐색한 기능 이전으로 돌리기
+            var result2 = $('div').find('p:last').find('b').end().html();
+            alert(result2);                                     //jQuery -> end() -> <b>jQuery<b>
+        });
+    </script>
+</head>
+<body>
+    <div id="myForm">
+        <p>
+            <b>JavaScript</b>
+        </p>
+        <p>
+            <b>jQuery</b>
+        </p>
+    </div>
+</body>
+</html>

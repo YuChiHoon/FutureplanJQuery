@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>검색된 요소를 복사하기</title>
+
+    <style type="text/css">
+        #menu {background-color:blue; color:white;}
+        #submenu {background-color:silver;}
+        #content {height:100px;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] 상단 메뉴를 복사(Clone)해서 하단 메뉴에 추가(Append)
+            $('#menu').clone().insertBefore('#submenu');
+            $('#menu').clone().prependTo('#submenu');
+            //원래 하단 메뉴가 있는 위치
+            $('#menu').clone().appendTo('#submenu');
+            $('#menu').clone().insertAfter('#submenu');
+        });
+    </script>
+</head>
+<body>
+    <div id="menu">
+        HOME about
+    </div>
+    <div id="content">
+        상단 메뉴를 아래 하단메뉴에 복사
+    </div>
+    <div id="submenu">
+        여기는 하단메뉴 들어오는 곳
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>n번째 요소 가져오기</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            alert($('p:eq(2)').text());     //선택기 필터
+            alert($('p').eq(2).html());     //메서드
+        });
+    </script>
+</head>
+<body>
+    <p>C#</p>
+    <p>ASP.NET</p>
+    <p>jQuery</p>
+</body>
+</html>

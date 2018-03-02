@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>워터마크</title>
+
+    <style type="text/css">
+        .water { color:silver;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //로드시 텍스트박스의 텍스트에 water 클래스 적용
+            $('#txtUserID').addClass("water");
+
+            //레이블의 값을 워터마크텍스트로 가져옴
+            var watermakedText = $('#lblUserID').remove().text();
+            $('#txtUserID').val(watermakedText)
+                .focus(function ()
+                {
+                    if (this.value == watermakedText) {
+                        $(this).val('');                //텍스트를 입력가능하도록 클리어
+                        $('#txtUserID').removeClass("water");       //water CSS클래스 제거
+                    }
+                })
+                .blur(function ()
+                {
+                    if (this.value == '') {
+                        $(this).val(watermakedText);        //아이디를 입력하지 않으면 다시 워터마크텍스트로 지정
+                        $('#txtUserID').addClass("water");          //water CSS클래스 재 적용
+                    }
+                });
+            // 전송시 값을 입력하지 않으면, 빈값으로 초기화
+            $('form').submit(function ()
+            {
+                //텍스트박스의 값이 워터마크텍스트라면 빈값으로 처리
+                if ($('#txtUserID').val() == watermakedText)
+                {
+                    $('#txtUserID').val('');
+                    return false;           //submit 이벤트 멈춤
+                }
+            });
+
+        });//end ready
+    </script>
+</head>
+<body>
+    <form name="frm" method="post" action="01_33_WaterMarkTextBox.aspx">
+        <label for="txtUserID" id="lblUserID">아이디를 입력하시오.</label>
+        <input type="text" name="txtUserID" id="txtUserID" />
+        <input type="submit" value="전송" />
+    </form>
+</body>
+</html>

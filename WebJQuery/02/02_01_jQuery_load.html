@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>동적으로 원격 페이지 로드</title>
+
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('#btn .btnLoad').click(function ()
+            {
+                $('#ctlGrid').load("02_01_HtmlSamplePage.html");             //비동기적으로 페이지로드
+                window.alert("이 메시지는 먼저 출력됨. why? 비동기.");       // 메시지 박스가 먼저 출력 가능
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="btn">
+        <div class="btnLoad">HTML읽어오기 버튼</div>
+    </div>
+    <div id="ctlGrid">
+    </div>
+</body>
+</html>

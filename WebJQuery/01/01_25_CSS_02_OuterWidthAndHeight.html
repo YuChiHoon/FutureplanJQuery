@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>검색된 요소의 크기 구하기</title>
+
+    <style type="text/css">
+        #my { 
+            background-color:yellow;
+            border:2px solid gray;
+            position:absolute;
+            padding:10px;
+            z-index:0;
+            margin:10px;
+            top:50px;
+            left:50px;
+            width:200px;
+            height:200px;
+        }
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('#btnSize').mouseover(function ()
+            {
+                // outerHeight() : 마진을 제외한 영역의 크기
+                alert("outerHeight : " + $("#my").outerHeight());
+
+                // outerHeight(true) : 마진을 포함한 영역의 크기
+                alert("outerHeight(true) : " + $("#my").outerHeight(true));
+                alert("outerWidth : " + $("#my").outerWidth());
+                alert("outerWidth(true) : " + $("#my").outerWidth(true));
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="my">
+        <p>jQuery</p>
+        <p>Ajax</p>
+    </div>
+    <input type="button" id="btnSize" value="위 영역의 크기 구하기"
+</body>
+</html>

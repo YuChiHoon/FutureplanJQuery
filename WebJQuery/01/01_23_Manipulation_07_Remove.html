@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>검색된 요소를 완전 제거</title>
+
+    <style type="text/css">
+        div { background-color:yellow;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] 내용 지우기
+            $('#btnEmpty').click(function ()
+            {
+                $('div').empty();
+                $('div').append("<b>hi</b>");       //div에 추가 가능
+            });
+
+            //[2] 요소 없애기
+            $('#btnRemove').click(function ()
+            {
+                $('div').remove();
+                $('div').append("<b>hi</b>");       //div가 없다.
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <p>jQuery</p>
+        <p>Ajax</p>
+    </div>
+    <input type="button" id="btnEmpty" value="위 영역 삭제" />
+    <input type="button" id="btnRemove" value="위 영역 삭제" />
+</body>
+</html>

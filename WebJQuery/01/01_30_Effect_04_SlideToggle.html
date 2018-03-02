@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>슬라이드 토글</title>
+
+    <style type="text/css">
+        #my .hover { cursor:pointer; background-color:yellow; }
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $("#btn").click(function ()
+            {
+                //[!] 숨김->보임->숨김
+                $("#first").slideToggle('slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="슬라이드 토글" />
+    <div id="first" style="display:none; background-color:yellow; height:100px;">
+        첫번째 영역
+    </div>
+</body>
+</html>

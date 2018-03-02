@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>특정 용어에 대해서 번호 붙이기</title>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] term CSS 클래스에 배경색 적용
+            $('.term')
+                .not(":odd").css("background-color", "yellow")              //홀수
+                .end()
+                .filter(":odd").css("background-color", "lightblue");       //짝수
+            //[2] 각각의 주석/용어 뒤에 번호 붙이기
+            $('.term').each(function (i)
+            {
+                $(this).append("<sup>" + (i + 1) + "</sup>");
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h3>What is jQuery?</h3>
+    <div>
+        <span class="term">jQuery</span> is a fast, small, and feature-rich <span class="term">JavaScript</span> library.
+        It makes things like <span class="term">HTML</span> document traversal and manipulation,
+        event handling, animation, and <span class="term">Ajax</span> much simpler with an easy-to-use
+        API that works across a multitude of browsers.
+        With a combination of versatility and extensibility,
+        jQuery has changed the way that millions of people write JavaScript.
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DOM 요소 생성 후 원하는 요소에 추가</title>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] 태그안의 내용 초기화
+            $('#lblDisplay').empty();
+
+            //[2] 동적으로 태그 추가
+            var strHtml = $("<a href='#'>닷넷코리아</a><hr/>");
+            $('#lblDisplay').append(strHtml);
+
+            //[3] 버튼 클릭시 테이블 생성
+            $('#btnCreate').click(function ()
+            {
+                $('#lblTable').empty();     //클리어
+                var row = $('#row').val();
+                var col = $('#col').val();
+                var strTable = "<table border='1'>";
+
+                for (var i = 0; i < row; i++)
+                {
+                    strTable += "<tr>";
+
+                    for (var j = 0; j < col; j++)
+                    {
+                        strTable += "<td>" + (i+1) + "행, " + (j+1) + "열" + "</td>";
+                    }
+                    strTable += "</tr>";
+                }
+
+                strTable += "</table>";
+                $('#lblTable').append(strTable);
+
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!--[1] 동적으로 태그 추가-->
+    <span id="lblDisplay"><b>여기에 태그 추가</b></span>
+    <!--[2] 동적으로 테이블 추가-->
+    <input type="text" id="row" />행
+    <input type="text" id="col" />열
+    <input type="button" id="btnCreate" value="테이블 동적 생성" />
+    <div id="lblTable"></div>
+</body>
+</html>
