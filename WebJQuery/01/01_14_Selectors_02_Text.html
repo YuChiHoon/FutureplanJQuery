@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>텍스트박스의 값 복사</title>
+    <style type="text/css">
+        .silver {background-color:silver;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            // 모든 텍스트박스의 배경을 Silver로 설정
+            $(':text').addClass("silver");
+
+            //첫번째 텍스트박스의 값을 두번째 텍스트박스로 복사
+            $('#btnCopy').click(function ()
+            {
+                $('#txtID').val($('#txtUserID:text').val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        아이디 : <input type="text" id="txtUserID" />
+        <hr />
+        <input type="button" id="btnCopy" value="복사" />
+        <hr />
+        아이디 : <input type="text" id="txtID" />
+    </div>
+</body>
+</html>

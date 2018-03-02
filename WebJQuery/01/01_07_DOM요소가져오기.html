@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DOM 요소 가져오기</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        //[!] jQuery의 엔트리 포인트
+        //$(document).ready(function ()         //[1] 첫번째 방법 : 추천
+        //$().ready(function ()                 //[2] 두번째 방법
+        $(function ()                           //[3] 세번째 방법
+        {
+            var tagName = $('#dnk').get(0).tagName;     // dnk id를 가지는 태그의 이름
+            alert(tagName);                             // A
+        });
+    </script>
+</head>
+<body>
+    <a href="http://www.dotnetkorea.com/" id="dnk">닷넷코리아</a>
+</body>
+</html>

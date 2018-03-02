@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>요소만큼 반복해서 속성 설정 및 가져오기</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] each 메서드 설명
+            //$('p').each(function (index) { alert(index); });
+
+            //[2] for문처럼 반복한다. index는 0부터 자동 증가됨
+            $('p').each(function (index)
+            {
+                $(this).attr({ 'id': "para-" + index });        //attr({어트리뷰트:값});
+            });
+
+            //[3] 0번째 요소의 텍스트 읽어오기
+            $('#btn').click(function ()
+            {
+                alert($('#para-0').text());                     // text() : 태그안의 값 : C#
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>C#</p>
+    <p>ASP.NET</p>
+    <p>SilverLight</p>
+    <input type="button" id="btn" value="동적으로 생성된 id로 개체접근" />
+</body>
+</html>

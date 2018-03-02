@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hello World JQuery!!!</title>
+    <style type="text/css">
+        .bg { background-color: yellow; }
+        .sil { background-color: silver; }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()           //페이지가 준비되었을 때
+        {
+            $('#hw').addClass("bg");            //hw라는 id속성을 가지는 레이어를 가져와 그것에 bg css클래스 적용
+            $('#hw').click(function () { alert('안녕3'); $(this).addClass("sil"); });
+        });
+    </script>
+</head>
+<body>
+    <div style="background-color:yellow;" onclick="alert('안녕');">
+        안녕하세요. JQuery!!!
+    </div>
+
+    <div class="bg">
+        안녕하세요. JQuery!!!
+    </div>
+
+    <div id="hw">
+        안녕하세요. JQuery!!!
+    </div>
+</body>
+</html>

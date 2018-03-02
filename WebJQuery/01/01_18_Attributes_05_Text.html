@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>텍스트 값 가져오기 및 설정</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            // get
+            var text = $('b').text();
+            alert(text);
+
+            // set
+            $('p:first').text("<b>낼</b> 봐요.");
+            $('p:last').html("<b>낼</b> 봐요.");
+        });
+    </script>
+</head>
+<body>
+    <div>
+        안녕하세요. <b>jQuery</b><br />
+        반갑습니다. <b>JavaScript</b><br />
+        <p>또 만나요.</p>
+        <p>언제요?</p>
+    </div>
+</body>
+</html>

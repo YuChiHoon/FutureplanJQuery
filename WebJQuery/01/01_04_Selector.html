@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Selector : 선택자/선택기/실렉터/셀렉터</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <style type="text/css">
+        .bg{background-color:yellow;}
+        .horizontal{float:left; list-style:none; margin:10px;}
+    </style>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(
+            function ()
+            {
+                //[1] li > u 에 대해서 배경색을 yellow로 설정
+                $('li > u').addClass('bg');         //li 자식 요소 중 u 태그인것만 선별
+
+                //[2] id 속성이 myFavorites인 것의 자식 요소중 li에 CSS클래스 적용
+                $("#myFavorites > li").addClass("horizontal");
+
+                //[3] id 속성에 대해서 직접 접근
+                jQuery('#jquery').click(function () { alert('안녕'); });
+
+                //[4] class 속성이 sil인 개체에 접근
+                $('.sil').click(function () { alert("실버라이트"); });
+            });
+    </script>
+</head>
+<body>
+    <h3>관심사항</h3>
+    <ul id="myFavorites">
+        <li><u>C#</u></li>
+        <li>ASP.NET</li>
+        <li class="sil">Silverlight</li>
+        <li id="jquery">J<u>Q</u>uery</li>
+    </ul>
+</body>
+</html>

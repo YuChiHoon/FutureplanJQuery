@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>마우스 오버시 큰 이미지 보여주기</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //아래 코드는 모든 이미지 파일의 이미지명을 얻어,
+            //bigs/폴더에 있는 동일한 이미지를 div에 보여준다.
+            $('#product img').mouseover(function ()
+            {
+                $('#showImage').show();                                     //이미지 보여줄 레이어 보이기
+                var imgScr = "";                                            //이미지 소스 저장 변수
+                imgScr = $(this).attr("src");                               //attr()로 src get하기
+                imgScr = imgScr.substr(imgScr.lastIndexOf("/") + 1);        //순수 파일명만 얻기
+                imgScr = "<img src='../bigs/" + imgScr + "' />";            //큰 이미지 설정
+                $("#showImage").html(imgScr);                               //레이어 HTML 추가
+            });
+
+            $('#product img').mouseout(function ()
+            {
+                $("#showImage").mouseout(function ()
+                {
+                    $("#showImage").hide();                                 //레이어 숨기기
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="product">
+        <img src="../images/K-001.jpg" />
+        <img src="../images/K-002.jpg" />
+        <img src="../images/K-003.jpg" />
+
+        <div id="showImage"
+             style="border:1px solid red; width:400px; height:400px;">
+        </div>
+    </div>
+</body>
+</html>

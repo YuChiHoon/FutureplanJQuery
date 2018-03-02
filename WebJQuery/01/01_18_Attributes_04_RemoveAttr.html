@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>특정 속성을 지우기</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //버튼 클릭시 특성/속성/attribute/어트리뷰트/애트리뷰트 제거
+            $('#btnRemove').click(function ()
+            {
+                $('img:first').removeAttr("src");       //src 속성 삭제
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btnRemove" value="src 삭제" />
+
+    <img src="../images/K-001.jpg" alt="하드웨어" />
+    <img src="../images/K-001.jpg" alt="하드웨어" />
+</body>
+</html>

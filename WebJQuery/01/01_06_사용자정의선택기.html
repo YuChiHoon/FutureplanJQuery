@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>테이블의 짝수번째 배경색 변경</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <style type="text/css">
+        .redColor{background-color:red;}
+        .blueColor{background-color:blue;}
+        .greenColor{background-color:green;}
+    </style>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] 홀수번째 배경색으로 red로 하고싶다.
+            $('tr:odd').addClass('redColor');
+            //[2] 짝수번째 배경색을 blue로 하고싶다.
+            $('table tr:even').addClass('blueColor');
+            //[3] td 태그내의 텍스트가 RedPlus를 폼하는 요소를 검색 후 배경색을 green
+            $("td:contains('RedPlus')").addClass("greenColor");
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Windows Server</td>
+        </tr>
+        <tr>
+            <td>SQL Server</td>
+        </tr>
+        <tr>
+            <td>비주얼 스튜디오</td>
+        </tr>
+        <tr>
+            <td>닷넷</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td>RedPlus.NET</td>
+        </tr>
+        <tr>
+            <td>닷넷코리아</td>
+        </tr>
+    </table>
+</body>
+</html>

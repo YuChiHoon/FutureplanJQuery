@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery CDN 사용하기</title>
+    <style type="text/css">
+        #myDiv {
+            background-color: yellow;
+            height: 100px;
+        }
+    </style>
+    <!-- jQuery 인클루드 -->
+    <!-- 속도 증가 -->
+    <!-- https://docs.microsoft.com/en-us/aspnet/ajax/cdn/overview#Using_jQuery_from_the_CDN_21 -->
+
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $('#btnChange').click(function () {
+                $('#myDiv').css("background-color", "red");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="myDiv">
+        Microsoft jQuery CDN : http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js
+    </div>
+
+    <input type="button" id="btnChange" value="위 레이어 배경색 변경하기" />
+</body>
+</html>

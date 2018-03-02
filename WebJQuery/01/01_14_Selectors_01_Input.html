@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>모든 폼 요소 읽어오기</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            var result = "";
+            //폼 요소가 있는 만큼 반복하자.
+            alert($(':input').length);
+            $(':input').each(function (index)
+            {
+                result += "태그명 : " + $(this).get(0).tagName  //this.tagName
+                    + ", type 속성명 : " + $(this).attr('type') + '\n';
+            });
+            alert(result);
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="Input Button" /><br />
+    <input type="text" /><br />
+    <input type="password" /><br />
+    <input type="checkbox" /><br />
+    <input type="file" /><br />
+    <input type="hidden" /><br />
+    <input type="image" /><br />
+    <input type="radio" /><br />
+    <input type="reset" /><br />
+    <input type="submit" /><br />
+    <select><option>드롭다운리스트</option></select><br />
+    <textarea>멀티라인텍스트박스</textarea><br />
+    <button>버튼</button><br />
+</body>
+</html>

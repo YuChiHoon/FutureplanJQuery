@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DOM요소의 attribute 읽어오기</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] get
+            alert($('a').attr('href'));
+            //[2] set : img에 마우스 오버시 이미지 변경
+            $('img:first').mouseover(function ()
+            {
+                $(this).attr("src", "../images/K-002.jpg");
+            });
+            //[3] 마우스오버/아웃시 다른 이미지 표시
+            $('#copy').mouseover(function ()
+            {
+                $(this).attr('src', "../images/K-002.jpg");
+            });
+            $('#copy').mouseout(function () {
+                $(this).attr('src', "../images/K-001.jpg");
+            });
+        });
+    </script>
+</head>
+<body>
+    <a href="http://www.dotnetkorea.com/">닷넷코리아</a>
+
+    <img src="../images/K-001.jpg" />
+
+    <img src="../images/K-001.jpg" id="copy"/>
+
+</body>
+</html>

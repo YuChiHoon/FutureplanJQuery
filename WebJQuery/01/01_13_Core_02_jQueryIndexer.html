@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HTML 요소 가져오기</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //h3 요소 모두 가져오기
+            var headers = $('h3');
+            //반복문을 써서 반복 : for문보다는 jQuery의 each문이 사용하기 편리
+            for (var i = 0; i < headers.length; i++)
+            {
+                alert($(headers[i]).html());
+            }
+            //위 코드를 each문으로 변경
+            $('h3').each(function (index)
+            {
+                alert($(this).html());
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>제목1</h3>
+    <h3>제목2</h3>
+</body>
+</html>

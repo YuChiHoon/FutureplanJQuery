@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery Selectors A to Z</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script language="javascript" type="text/javascript">
+        //페이지 로드 이벤트 처리기
+        $(document).ready(function ()
+        {
+            //[1] 단일 선택
+            var divs = $('div');
+            window.alert(divs.length);      //3
+            //[2] 스타일 적용
+            $('div').css('background-color', 'silver');
+            //[3] 반복
+            $('div').each(function () {
+                alert($(this).html());      //각 반복시 해당 개체의 HTML 컨텐츠
+            });
+            //[4] 다중 선택
+            alert($('div, span').length);   //div, span의 요소의 갯수
+            //[5] id 요소 선택 : CSS : .class#id
+            alert(jQuery('#txtDisplay').html());
+            //[6] class 요소 선택
+            jQuery('div.myLayer').css("border", "1px solid red");
+            //[7] 자식 요소 가져오기
+            $('ul li').css("color", "red");
+            //[8] 속성 값 가져오기
+            alert($("li[title='jQuery']").html());
+            //[9] 입력 요소 모두
+            alert($(':input').length);      //2개 input, select
+            //[10] 포함 요소
+            jQuery('li:contains("jQuery")').css("color", "blue");
+            //[11] 짝수 홀수부분 짝수:even 홀수 odd
+            $('ul li:even').css("color", "yellow");
+            //[12] 첫번째 자식 요소
+            alert($('option:first-child').html());
+            //[13] ~로 시작, 끝, 포함
+            jQuery('input[value^="닷넷"]').css("color", "blue");                  //시작
+            jQuery('input[value$=".png"]').css("color", "red");                   //끝
+            jQuery('input[value*="코리"]').css("background-color", "yellow");     //포함
+        });
+    </script>
+</head>
+<body>
+    <div class="myLayer">Red 영역</div>
+    <div class="myLayer">Green 영역</div>
+    <div class="myLayer">Blue 영역</div>
+    <span class="myLayer" id="txtDisplay">텍스트 영역</span>
+    <hr />
+    <ul>
+        <li>JavaScript</li>
+        <li title="jQuery">jQuery</li>
+        <li>KnockoutJS</li>
+    </ul>
+    <hr />
+    <input type="text" name="txtInput" value="닷넷코리아" />
+    <input type="text" name="txtImage" value="Image.png" />
+    <select>
+        <option value="0">JavaScript</option>
+        <option value="1">jQuery</option>
+    </select>
+
+</body>
+</html>

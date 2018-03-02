@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery Attributes 접근</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //myLayer2, 3에 title 속성 주기
+            $('div.myLayer2, div.myLayer3').each(function (index)
+            {
+                this.title = "동적으로 타이틀 부여하기";       //this.속성에 의해서 특정 속성값 변경
+                $(this).attr('title', 'attr()로 타이틀 주기');
+            });
+
+            //myLayer3에 여러가지 속성을 부여하기
+            //$('div.myLayer3').attr({
+            //    title: 'JSON을 사용한 레이어',
+            //    style: 'border:1px soldi bule; background-color:yellow;'
+            //});
+            $('div.myLayer3')
+                .attr({ title: 'JSON을 사용한 레이어' })
+                .css("border", "1px soldi bule")
+                .css("background-color", "yellow");
+        });
+    </script>
+</head>
+<body>
+    <div class="myLayer1" title="여기는 Red 영역입니다.">Red 영역</div>
+    <div class="myLayer2">Green 영역</div>
+    <div class="myLayer3">Blue 영역</div>
+</body>
+</html>

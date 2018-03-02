@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>bind()중 click이벤트는 click()메서드로 사용</title>
+    <style type="text/css">
+        .redColor{color:red;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //특정 요소에 클릭 이벤트롤 적용 : bind()보다 간편
+            $('#mainMenu .redColor').click(function () {
+                if (this.id == "dnk")
+                {
+                    location.href = "http://www.dotnetkorea.com";
+                }
+                else if (this.id == "va")
+                {
+                    window.open("http://www.VisualAcademy.com/", "", "");
+                }
+                });
+        });
+    </script>
+</head>
+<body>
+    <div id="mainMenu">
+        <div id="dnk" class="redColor">닷넷코리아</div>
+        <div id="va" class="redColor">비주얼아카데미</div>
+        <div id="ll" class="redColor">라이선스랜드</div>
+    </div>
+</body>
+</html>

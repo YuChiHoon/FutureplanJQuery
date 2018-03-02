@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>one()메서드로 한번만 실행</title>
+    <style type="text/css">
+
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[!] bind(), click() 메서드와 달리 one() 메서드는 딱 한번만 실행되고, 이벤트가 해제됨.
+            $("#my .hover").one("click", function () { alert('한번만 클릭'); });
+        });
+    </script>
+</head>
+<body>
+    <div id="my">
+        <input type="button" id="btn" value="버튼" class="hover" />
+    </div>
+</body>
+</html>

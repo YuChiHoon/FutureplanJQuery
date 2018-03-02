@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>폼 요소의 값 가져오기 및 설정</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //Init
+            $('#txtName').val("RedPlus");           //단일값
+            $('#input:radio').val(['F']);           //다중값 : []
+            $('#lstFavorites').val(['0', '2']);      //다중값 : [,]
+
+            $('#btnOK').click(function ()
+            {
+                var msg = "";
+                //[1] 반드시 폼 요소의 value 속성을 가져온다. <> 에러
+                msg += $('#txtName').val() + '\n';
+
+                //[2] 라이도버튼의 체크된 value 속성을 가져옴 <> undefined
+                msg += $('input:radio[name=Gender]:checked').val() + '\n';
+
+                //[3] 리스트박스에서 여러개 값 가져오기
+                msg += $('#lstFavorites').val().join(" | ") + '\n';
+
+                //[!]
+                alert(msg);
+            });
+        });
+    </script>
+</head>
+<body>
+    텍스트박스 : <input type="text" id="txtName" /><br />
+    라디오버튼 :
+    <input type="radio" id="optGender1" name="Gender" value="M" />남
+    <input type="radio" id="optGender1" name="Gender" value="F" />여<br />
+    드롭다운리스트 :
+    <select id="lstFavorites" multiple="multiple" size="3">
+        <option value="0">JavaScript</option>
+        <option value="1">jQuery</option>
+        <option value="2">Prototype</option>
+    </select>
+    <input type="button" value="확인" id="btnOK" />
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>bind() 메서드로 동적으로 이벤트 부여</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('#btnClick').bind("click", function () { alert('클릭됨'); });
+            $('#btnClick').bind("mouseover", function () { document.getElementById('btnClick').style.backgroundColor = 'red'; });
+            $('#btnClick').bind("mouseout", function () { $('#btnClick').get(0).style.backgroundColor = ''; });
+        });
+    </script>
+</head>
+<body>
+    <div id="btnClick">
+        클릭하세요!!!
+    </div>
+</body>
+</html>

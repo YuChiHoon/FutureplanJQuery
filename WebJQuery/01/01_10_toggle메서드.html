@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>toggle() 메서드로 토글링</title>
+    <style type="text/css">
+        .hidden {display:none;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            // .toggle(fn1,fn2);  //fn1과 fn2를 서로 토글링한다....
+
+            // 변경됨 toggle()을 사용하게 되면 이전 상태에 따라 현재 상태를 반대로 바꿔줍니다.
+            $("#btn").toggle(
+                function () { $('#myLayer').addClass("hidden"); },
+                function () { $('#myLayer').removeClass("hidden"); }
+            );
+        });
+    </script>
+</head>
+<body>
+    <h1>버튼을 클릭할 때마다 레이어 보이기/숨기기</h1>
+    <input id="btn" type="button" value="버튼" />
+
+    <div id="myLayer" style="background-color:yellow;">
+        안녕
+    </div>
+</body>
+</html>

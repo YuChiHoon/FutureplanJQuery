@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>toggleClass() 메서드로 CSS 클래스에 대한 토글링</title>
+    <style type="text/css">
+        .hidden {display:none;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $("#btn").click(
+                //[!] hidden CSS Class에 대해서 addClass() <-> removeClass()
+                function () { $('#myLayer').toggleClass('hidden'); }
+            );
+        });
+    </script>
+</head>
+<body>
+    <h1>버튼을 클릭할 때마다 레이어 보이기/숨기기</h1>
+    <input id="btn" type="button" value="버튼" />
+
+    <div id="myLayer" style="background-color:yellow;">
+        안녕
+    </div>
+</body>
+</html>

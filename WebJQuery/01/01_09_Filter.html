@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>filter() 메서드를 사용해서 조건에 맞는 요소만 가져오기</title>
+    <style type="text/css">
+        .redBorder {border:solid 1px red;}
+        .five {border-width:5px;}
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('img').addClass('redBorder')                            //모든 이미지에 redBorder 클래스 적용
+                .filter('[title*=닷넷]').addClass('five')             //'닷넷' title만 뽑아서 five클래스 적용
+                .end()                                                //부모로 이동
+                .filter('[alt$=디드]').removeClass('redBorder');      //'디드'로 끝나는 스타일 제거
+        });
+    </script>
+</head>
+<body>
+    <img sre="" title="닷넷" alt="닷넷" />
+    <img sre="" title="자바" alt="자바" />
+    <img sre="" title="임베디드" alt="임베디드" />
+</body>
+</html>

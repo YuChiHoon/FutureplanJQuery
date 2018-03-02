@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>정규표현식 셀렉터</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <style type="text/css">
+        .red{color:red;}
+        .green{color:green;}
+        .silver{color:silver;}
+    </style>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] dotnet이라는 단어가 들어가는 링크에 배경을 red로 설정
+            $("a[href*='dotnet']").addClass("red");         //~가 들어가는
+            //[2] aspx로 끝나는 링크의 배경 green으로 설정
+            $('a[href$="aspx"]').addClass("green");         //~가 끝나는
+            //[3] mailto:로 시작하는 링크의 배경을 silver로 설정
+            jQuery("a[href^='mailto:']").addClass("silver");    //~로 시작하는
+        });
+    </script>
+</head>
+<body>
+    <a href="http://www.dotnetkorea.com/">닷넷코리아</a>
+    <a href="http://www.VisualAcademy.com/Default.aspx">비주얼아카데미</a>
+    <a href="mailto:redplus@hawaso.com">이메일</a>
+</body>
+</html>

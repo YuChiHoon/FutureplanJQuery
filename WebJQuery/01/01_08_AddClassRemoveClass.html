@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>AddClass() : 스타일 추가 RemoveClass() : 스타일 제거</title>
+    <style type="text/css">
+        .yellow{background-color:yellow; border:1px solid red;}
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('#btnClick')
+                .bind('mouseover', function () { $('#btnClick').addClass('yellow'); })
+                .bind('mouseout', function () { $(this).removeClass('yellow'); });
+        });
+    </script>
+</head>
+<body>
+    <div id="btnClick">
+        마우스를 올려보세요~
+    </div>
+</body>
+</html>
