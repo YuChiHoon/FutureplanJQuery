@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>반복사용하는 ajax() 메서드의 주요 속성을 ajaxSetup()에서 설정</title>
+
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //$.ajax()에서 반복 사용하는 속성을 상단에 설정 후 $.ajax에서 상속받아 사용
+            $.ajaxSetup({
+                url: "02_01_jQuery_getJSON.js",
+                dataType: "json"
+            });
+
+            //동적으로 원격에 있는 JSON 파일(결과값)을 로드
+            $.ajax({
+                success: function (data) {
+                    //받아온 JSON을 테이블에 출력 (매개변수 없는 방식)
+                    $.each(data, function ()
+                    {
+                        $('#tblList').append("<tr><td>" + this.Num + "</td><td>" + this["Name"] + "</td></tr>");
+                    });
+                },
+                error: function () { alert("에러발생"); }
+            });
+
+
+            $.ajax({
+                success: function (data) {
+                    //받아온 JSON을 테이블에 출력 (매개변수 없는 방식)
+                    $.each(data, function () {
+                        $('#tblList2').append("<tr><td>" + this.Num + "</td><td>" + this["Name"] + "</td></tr>");
+                    });
+                },
+                error: function () { alert("에러발생"); }
+            });
+        });
+    </script>
+</head>
+<body>
+    <table id="tblList" border="1"></table>
+    <table id="tblList2" border="1"></table>
+</body>
+</html>

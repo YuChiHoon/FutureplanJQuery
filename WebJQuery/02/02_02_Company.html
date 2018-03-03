@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>XML파일 로드하기</title>
+
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('#btn').click(function ()
+            {
+                $.get('02_02_Company.xml', function (data)
+                {
+                    $('#ctlGrid').empty();
+                    $(data).find('Company')
+                        .each(function ()
+                    {
+                            var $entry = $(this);       //현재 시점의 레코드셋
+
+                            //특성(Attribute)을 읽어오기
+                            var html = "<div>";
+                            html += "<div>" + $entry.attr('CompanyType') + "</div>";        //Private
+                            html += "</div>";
+
+                            //하위 엘리먼트 읽어오기
+                            html += "<div>" + $entry.find("CompanyName").text() + "</div>"; //닷넷코리아
+                            $('#ctlGrid').append($(html));
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="회사소개" />
+    <div id="ctlGrid"></div>
+</body>
+</html>

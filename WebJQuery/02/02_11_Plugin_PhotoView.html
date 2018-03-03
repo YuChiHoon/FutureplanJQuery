@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>사진 상세 보기 플러그인 제작</title>
+    <link href="02_11_Plugin_PhotoView.css" rel="stylesheet" type="text/css" />
+    
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script src="02_11_Plugin_PhotoView.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            //썸네일 이미지 개체 리스트에 상세 이미지 출력
+            $('#products img').photomatic({
+                photoElement: '#photo',
+                previousControl: '#prev',
+                nextControl: '#next',
+                firstControl: '#first',
+                lastControl: '#last'
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>상품 상세 보기</h1>
+    <div id="products">
+        <img src="../images/K-001.jpg" />
+        <img src="../images/K-002.jpg" />
+        <img src="../images/K-003.jpg" />
+        <img src="../images/K-004.jpg" />
+        <img src="../images/K-005.jpg" />
+    </div>
+    <div id="big">
+        <img id="photo" src="" alt="상세 이미지" />
+    </div>
+    <div id="navi">
+        <button type="button" id="first">처음</button>
+        <button type="button" id="prev">이전</button>
+        <button type="button" id="next">다음</button>
+        <button type="button" id="last">마지막</button>
+    </div>
+</body>
+</html>

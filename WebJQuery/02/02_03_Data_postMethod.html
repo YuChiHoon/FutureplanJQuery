@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Post 방식으로 서버에 데이터 전송 및 받기</title>
+
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('#btn').click(function ()
+            {
+                $.post("02_02_Data_FrmResponseData.aspx",        //[1] 서버측 스크립트 언어 : ASP.NET, JSP, PHP
+                    { 'Msg': 'Post방식으로전송' },                    //[2] 쿼리스트링 : ?키1=값1&키2=값2
+                    function (data)                              //[3] 콜백함수 : 결과값 받기, data로 받아옴
+                    {
+                        $('#pnlDisplay').html(data);
+                    });//end &.get()
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="서버로부터 HTML 가져오기" />
+    <div id="pnlDisplay">
+        여기에 출력
+    </div>
+
+</body>
+</html>

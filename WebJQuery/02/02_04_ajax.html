@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>getScript()메서드의 기능을 ajax()메서드로 대체</title>
+
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $.ajax({
+                type: "get",
+                url: "02_04_ajax.js",
+                dataType: "script",
+                success: function (data) { MessageBox('안녕'); },
+                error: function (data) { alert('에러 발생'); }
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

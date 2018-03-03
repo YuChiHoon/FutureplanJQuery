@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>새로운 함수를 만들기</title>
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        //나만의 jQuery 메서드 만들기
+        //넘겨온 값(jQuery개체)을 새로운 HTML로 대체
+
+        $.fn.RepaceWith2010 = function (html) {
+            return this.after(html).remove();       //넘겨온 HTML로 대체후 기존 값 제거
+        }
+
+        $(document).ready(function ()
+        {
+            $('#btn').click(function ()
+            {
+                $('#my').empty(); $('#my').append("<h3>반갑습니다.</h3>");
+            });
+
+            $('#btn2').click(function () {
+                //없었던 함수(메서드)가 생성
+                $('#my').RepaceWith2010("<h3>또 만나요.</h3>");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="값 변경" />
+    <input type="button" id="btn2" value="값 변경" />
+    <div id="my">
+        <h3>안녕하세요.</h3>
+    </div>
+</body>
+</html>

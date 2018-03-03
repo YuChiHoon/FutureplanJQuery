@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>짝수행과 홀수행의 배경색 변경</title>
+    <style type="text/css">
+        .odd{background-color:silver;}
+        .even{background-color:aqua;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('table.tb1 tbody tr:odd').addClass('odd');
+            $('table.tb1 tbody tr:even').addClass('even');
+        });
+    </script>
+</head>
+<body>
+    <table class="tb1" border="1">
+        <thead>
+            <tr>
+                <th>제목</th>
+                <th>저자</th>
+                <th>출간일</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>책3</td>
+                <td>홍길동</td>
+                <td>2006</td>
+                <td>20000</td>
+            </tr>
+            <tr>
+                <td>책1</td>
+                <td>백두산</td>
+                <td>2016</td>
+                <td>25000</td>
+            </tr>
+            <tr>
+                <td>책2</td>
+                <td>한라산</td>
+                <td>2018</td>
+                <td>22000</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

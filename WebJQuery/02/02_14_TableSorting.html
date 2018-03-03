@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>짝수행과 홀수행의 배경색 변경 플러그인</title>
+    <style type="text/css">
+        .odd{background-color:silver;}
+        .even{background-color:aqua;}
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        //[!] 배경색 변경을 jQuery플러그인으로 업그레이드 하자.
+        $.fn.alternateRowColors = function ()
+        {
+            $('tbody tr:odd', this).removeClass('even').addClass('odd');
+            $('tbody tr:even', this).removeClass('odd').addClass('even');
+            return this;
+        };
+
+        $(document).ready(function ()
+        {
+            $('table.tb1').each(function ()
+            {
+                var $table = $(this);
+                //플러그인 호출
+                $table.alternateRowColors();
+
+                //start table sort
+                $('th', $table).each(function (column)
+                {
+                    //헤더의 CSS클래스가 sort-alpha로 설정되어있다면, ABC순으로 정렬
+                    if ($(this).is('.sort-alpha'))
+                    {
+                        //클릭시 정렬 실행
+                        var direction = -1;
+                        $(this).click(function ()
+                        {
+                            direction = -direction;
+                            var rows = $table.find('tbody > tr').get();     //현재 선택된 헤더관련 행 가져오기
+                            //자바스크립트의 sort함수를 사용해서 오름차순 정렬
+                            rows.sort(function (a, b)
+                            {
+                                var keyA = $(a).children('td').eq(column).text().toUpperCase();
+                                var keyB = $(b).children('td').eq(column).text().toUpperCase();
+
+                                if (keyA < keyB) return -direction;
+                                if (keyA > keyB) return direction;
+                                return 0;
+                            });
+
+                            //정렬된 행을 테이블에 추가
+                            $.each(rows, function (index, row) { $table.children('tbody').append(row); });
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <table class="tb1" border="1">
+        <thead>
+            <tr>
+                <th class="sort-alpha">제목</th>
+                <th class="sort-alpha">저자</th>
+                <th class="sort-alpha">출간일</th>
+                <th class="sort-alpha">가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>책3</td>
+                <td>홍길동</td>
+                <td>2006</td>
+                <td>20000</td>
+            </tr>
+            <tr>
+                <td>책1</td>
+                <td>백두산</td>
+                <td>2016</td>
+                <td>25000</td>
+            </tr>
+            <tr>
+                <td>책2</td>
+                <td>한라산</td>
+                <td>2018</td>
+                <td>22000</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

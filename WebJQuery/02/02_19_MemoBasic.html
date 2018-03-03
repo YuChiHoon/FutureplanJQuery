@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery를 사용한 한줄메모장</title>
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //[1] Ajax를 사용하기 위한 기본 설정 값
+            $.ajaxSetup
+                ({
+                    type: 'post',
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8"
+                });
+
+            //[2] 페이지 로드시 데이터 출력 또는 이벤트 처리기 등록
+            $(document).ready(function ()
+            {
+                DisplayData();                      //데이터 출력함수 호출
+                $('#btnAdd').click(btnAdd_Click);   // 버튼 클릭에 대한 이벤트 처리기 등록
+            });
+
+            //[3] 데이터로드
+            function DisplayData()
+            {
+                $.ajax({
+                    url: "02_19_MemoService.asmx/GetMemos",
+                    cache: false,
+                    data: "{}",         //"{ page : 0 }"
+                    success: handleHtml,
+                    error: ajaxFailed
+                });
+            }
+
+            //[3-1] 웹 서비스로부터 데이터가 정상적으로 로드시 테이블 만들어서 레이어에 출력
+            function handleHtml(data, status)
+            {
+                $('#ctlMemoList').empty();
+
+                var table = "<table border='1'><tr><td>번호</td><td>이름</td><td>한줄메모</td><td>작성일</td>";
+
+                // Microsoft AJAX에서는 보안목적으로 data.d로 실제 데이터를 감싸놓음.
+                $.each(data.d, function (index, entry)
+                {
+                    // 날짜형식 변경
+                    var today = new Date(DateDeserialize(entry["PostDate"]));
+                    var month = (today.getMonth() + 1) < 10 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1);    //월
+                    var day = today.getDate() < 10 ? "0" + today.getDate() : today.getDate();       //일
+
+                    table += '<tr>';
+                    table += '<td>' + entry["Num"] + '</td>';
+                    table += '<td>' + entry["Name"] + '</td>';
+                    table += '<td>' + entry["Title"] + '</td>';
+                    table += '<td>' + today.getFullYear() + "-" + month + "-" + day + '</td>';
+                    table += '</tr>';
+                });
+                table += "</table>";
+                $('#ctlMemoList').append(table);
+            }
+
+            //[3-2] Ajax 로드 실패시 에러 메시지 출력
+            function ajaxFailed(xmlRequest)
+            {
+                alert(xmlRequest.status + ' \n\r ' + xmlRequest.statusText + ' \n\r ' + xmlRequest.responseText);
+            }
+
+            //[3-3] 날짜 변환 함수
+            function DateDeserialize(dateStr)
+            {
+                return eval('new' + dateStr.replace(/\//g, ' '));
+            }
+
+            //[4] 데이터저장
+            function btnAdd_Click()
+            {
+                //[a] 데이터 받기
+                var name = $('#txtName').val();
+                var email = $('#txtEmail').val();
+                var title = $('#txtTitle').val();
+
+                //[b] 유효성 검사 : 또 다른 플러그인 검색 권장
+                if (name.length == 0)
+                {
+                    alert("이름을 입력하시오.");
+                    return;
+                }
+
+                //[c] JSON 형태로 넘길 문자열 묶기
+                var postVal = "{name:\"" + name + "\", email:\"" + email
+                    + "\", title:\"" + title + "\"}";
+
+                //[d] Ajax 전송
+                $.ajax({
+                    url: "02_19_MemoService.asmx/AddMemo",
+                    data: postVal,
+                    success: function (data)
+                    {
+                        alert('저장완료');
+                        $('#txtName').val('');
+                        $('#txtEmail').val('');
+                        $('#txtTitle').val('');
+                        DisplayData();          //재로드
+                    },
+                    error: ajaxFailed
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <h3>한줄 메모장</h3>
+    이름 : <input id="txtName" type="text" />
+    이메일 : <input id="txtEmail" type="text" />
+    메모 : <input id="txtTitle" type="text" />
+    <input id="btnAdd" type="button" value="메모 남기기" />
+    <hr/>
+    <div id="ctlMemoList">여기에 메모 리스트 출력</div>
+</body>
+</html>

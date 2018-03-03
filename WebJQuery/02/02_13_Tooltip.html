@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>툴팀 : 풍선 도움말</title>
+    <style type="text/css">
+        .tooltiptitle {
+            background-color: silver;
+        }
+        .tooltipcontent {
+            background-color: yellow;
+        }
+        .tooltiplayer {
+            display: none; width:250px; height:100px; border:1px solid gray;
+        }
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            //마우스 오버
+            $('.tt').mouseover(function (e)
+            {
+                $(this).mousemove(function (e)
+                {
+                    //title 찾아서 내용 비우고, 현재의 텍스트를 삽입
+                    $('#tooltiplayer #title').empty().append($(this).text());
+                    $('#tooltiplayer #content').empty().append($(this).text());
+
+                    var t = e.clientY - 15;              //상단 좌표
+                    var l = e.clientX + 20;              //좌측 좌표
+
+                    $('#tooltiplayer')
+                        .css({ "top": t, "left": l, "position": "absolute", "opacity": "0.8" })
+                        .show();                        //레이어 보이기
+                });
+            });
+
+            //마우스 아웃
+            $('.tt').mouseout(function (e) {
+                $('#tooltiplayer').hide();      //레이어 보이기
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="tooltiplayer" class="tooltiplayer">
+        <div class="tooltiptitle">
+            <span id="title">제목들어오는 곳</span>
+        </div>
+        <div class="tooltipcontent">
+            <span id="content">내용들어오는 곳</span>
+        </div>
+    </div>
+    <table border="1">
+        <tr>
+            <td><span class="tt">안녕하세요.</span></td>
+        </tr>
+        <tr>
+            <td><span class="tt">반갑습니다.</span></td>
+        </tr>
+        <tr>
+            <td><span class="tt">또 만나요.</span></td>
+        </tr>
+    </table>
+
+</body>
+</html>

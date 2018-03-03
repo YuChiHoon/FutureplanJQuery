@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Company CompanyType="Private">
+  <CompanyName>닷넷코리아</CompanyName>
+  <CompanyNumber>1234</CompanyNumber>
+  <CompanyAddress>서울</CompanyAddress>
+  <CompanyAddressDetail>세울</CompanyAddressDetail>
+  <Name>레드플러스</Name>
+</Company>

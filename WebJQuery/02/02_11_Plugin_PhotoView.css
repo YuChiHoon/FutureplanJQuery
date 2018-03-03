@@ -1,0 +1,13 @@
+﻿#products {
+    float: left;
+    width: 175px;
+    height: 422px;
+    overflow: auto;
+    border: 1px solid red;
+    margin-right: 10px;
+}
+
+#navi {
+    clear: both;
+    text-align: left;
+}

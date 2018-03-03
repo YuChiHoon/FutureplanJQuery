@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>날짜값 반환 예제</title>
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        //unix time 형태의 시간 문자열을 JavaScript 날짜형으로 변환
+        function DateDeserialize(dateStr)
+        {
+            return eval('new' + dateStr.replace(/\//g, ' '));
+        }
+
+        $(document).ready(function ()
+        {
+            $.ajax
+                ({
+                    type: "post",
+                    url: "02_23_AspNet_ResponseText.aspx/GetTime",
+                    data: "{}",
+                    contentType: "application/json; charset-utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        var result = data.d;
+
+                        document.write(result);     // /Date(125930...)/
+                        document.write("<br/>");
+
+                        var time = DateDeserialize(data.d);     //자바스크립트 날짜형으로 출력
+                        document.write(time);
+
+                        var today = new Date(time);             //자바스크립트에서 원하는 형태로 사용 가능
+                        document.write("<br/>" + today.getFullYear() + "년 입니다.");
+
+                        return;
+                        debugger;
+                    },
+                    erroe: function (data) { alert("에러발생"); }
+                });
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

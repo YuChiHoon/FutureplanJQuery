@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>요소를 끌어서놓기</title>
+    <style type="text/css">
+    </style>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('img').draggable({ opacity: "0.3" });     //끄는 동안만 불투명도 주기
+            $('div').droppable({
+                accept: "img",                  //드롭시킬 대상 요소
+                drop: function (event, ui)
+                {
+                    $(this).append("끌어서놓기 됨");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src="../images/K-001.jpg" />
+    <div style="position:absolute; top:100px; left:150px;
+         border:1px solid gray; width:160px;height:160px;
+         text-align:center;"></div>
+</body>
+</html>
